@@ -4,7 +4,7 @@
     align-self: flex-end;
     margin: 0 0 4px;
     padding: 0;
-    background-image: url('../images/like-button.svg');
+    background-image: url('../../../images/like-button.svg');
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -17,5 +17,5 @@
 
 .element__like-button:active {
     opacity: 1;
-    background-image: url('../images/like-button-active.svg');
+    background-image: url('../../../images/like-button-active.svg');
 }
