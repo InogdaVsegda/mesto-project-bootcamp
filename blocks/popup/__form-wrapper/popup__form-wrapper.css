@@ -1,0 +1,24 @@
+.popup__form-wrapper {
+    position: relative;
+    min-width: 430px;
+    min-height: 330px;
+    padding: 34px 36px 37px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 560px) {
+    .popup__form-wrapper {
+        min-width: 200px;
+        width: 100%;
+        min-height: 322px;
+        margin: 0 19px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .popup__form-wrapper {
+        padding: 25px 22px;
+    }
+}

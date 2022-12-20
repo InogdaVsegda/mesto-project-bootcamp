@@ -1,0 +1,7 @@
+.element__image {
+    height: 282px;
+    box-sizing: border-box;
+    object-fit: cover;
+    margin-left: -20%;
+    line-height: 0;
+}

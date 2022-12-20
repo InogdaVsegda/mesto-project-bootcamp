@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="container">
+  <header class="header">
+    <img src="./images/logo.svg" alt="логотип место" class="header__logo">
+  </header>
+  <main class="main">
+    <section class="profile">
+      <img src="./images/profile-picture.jpg" alt="аватар" class="profile__avatar">
+      <div class="profile__info">
+        <div class="profile__name-wrapper">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <a href="#" class="profile__edit-button"></a>
+        </div>
+        <p class="profile__description">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+    <section class="elements">
+      <div class="element">
+        <img src="./images/gudauri.jpg" alt="Гудаури" class="element__image">
+        <div class="element__content-wrapper">
+          <h2 class="element__name">Гудаури</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/kazbegi.jpg" alt="гора Казбек" class="element__image">
+        <div class="element__content-wrapper">
+          <h2 class="element__name">гора Казбек</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/mestia.jpg" alt="Местиа" class="element__image">
+        <div class="element__content-wrapper">
+          <h2 class="element__name">Местиа</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/mtskheta.jpg" alt="Мцхета" class="element__image">
+        <div class="element__content-wrapper">
+          <h2 class="element__name">Мцхета</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/svaneti.jpg" alt="Сванетия" class="element__image">
+        <div class="element__content-wrapper">
+          <h2 class="element__name">Сванетия</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/tbilisi.jpg" alt="Тбилиси" class="element__image">
+        <div class="element__content-wrapper">
+          <h2 class="element__name">Тбилиси</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </div>
+    </section>
+    <section class="popup popup_active">
+      <div class="popup__form-wrapper">
+        <form action="#" class="form">
+          <h2 class="form__heading">Редактировать профиль</h2>
+          <fieldset class="form__fieldset">
+            <input type="text" class="form__item form__item_el_name" value="Жак-Ив Кусто" placeholder="Имя">
+            <input type="text" class="form__item form__item_el_description" value="Исследователь океана" placeholder="Описание">
+          </fieldset>
+          <fieldset class="form__fieldset">
+            <input type="submit" class="form__button" value="Сохранить">
+          </fieldset>
+        </form>
+        <button class="popup__close-button"></button>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2022 Mesto Russia</p>
+  </footer>
+</body>
+</html>
