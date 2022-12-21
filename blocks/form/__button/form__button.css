@@ -5,6 +5,7 @@
     box-sizing: border-box;
     background-color: black;
     border: none;
+    border-radius: 2px;
     color: white;
     font-size: 18px;
     font-weight: normal;

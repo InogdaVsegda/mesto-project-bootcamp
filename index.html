@@ -16,11 +16,11 @@
       <div class="profile__info">
         <div class="profile__name-wrapper">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <a href="#" class="profile__edit-button"></a>
+          <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
         </div>
         <p class="profile__description">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button type="button" class="profile__add-button" aria-label="Добавить"></button>
     </section>
     <section class="elements">
       <ul class="elements__list">
@@ -28,63 +28,62 @@
           <img src="./images/gudauri.jpg" alt="Гудаури" class="element__image">
           <div class="element__content-wrapper">
             <h2 class="element__name">Гудаури</h2>
-            <button class="element__like-button"></button>
+            <button type="button" class="element__like-button" aria-label="Лайк"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/kazbegi.jpg" alt="гора Казбек" class="element__image">
           <div class="element__content-wrapper">
             <h2 class="element__name">гора Казбек</h2>
-            <button class="element__like-button"></button>
+            <button type="button" class="element__like-button" aria-label="Лайк"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/mestia.jpg" alt="Местиа" class="element__image">
           <div class="element__content-wrapper">
             <h2 class="element__name">Местиа</h2>
-            <button class="element__like-button"></button>
+            <button type="button" class="element__like-button" aria-label="Лайк"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/mtskheta.jpg" alt="Мцхета" class="element__image">
           <div class="element__content-wrapper">
             <h2 class="element__name">Мцхета</h2>
-            <button class="element__like-button"></button>
+            <button type="button" class="element__like-button" aria-label="Лайк"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/svaneti.jpg" alt="Сванетия" class="element__image">
           <div class="element__content-wrapper">
             <h2 class="element__name">Сванетия</h2>
-            <button class="element__like-button"></button>
+            <button type="button" class="element__like-button" aria-label="Лайк"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/tbilisi.jpg" alt="Тбилиси" class="element__image">
           <div class="element__content-wrapper">
             <h2 class="element__name">Тбилиси</h2>
-            <button class="element__like-button"></button>
+            <button type="button" class="element__like-button" aria-label="Лайк"></button>
           </div>
         </li>
       </ul>
-      
-    </section>
-    <section class="popup popup_opened">
-      <div class="popup__form-wrapper">
-        <form action="#" class="form">
-          <h2 class="form__heading">Редактировать профиль</h2>
-          <fieldset class="form__fieldset">
-            <input type="text" class="form__item form__item_el_name" value="Жак-Ив Кусто" placeholder="Имя">
-            <input type="text" class="form__item form__item_el_description" value="Исследователь океана" placeholder="Описание">
-          </fieldset>
-          <fieldset class="form__fieldset">
-            <input type="submit" class="form__button" value="Сохранить">
-          </fieldset>
-        </form>
-        <button class="popup__close-button"></button>
-      </div>
     </section>
   </main>
+  <section class="popup popup_opened">
+    <div class="popup__form-wrapper">
+      <form action="#" class="form" name="edit-profile">
+        <h2 class="form__heading">Редактировать профиль</h2>
+        <fieldset class="form__fieldset">
+          <input type="text" name="name-profile" class="form__item form__item_el_name" value="Жак-Ив Кусто" placeholder="Имя">
+          <input type="text" name="description-profile" class="form__item form__item_el_description" value="Исследователь океана" placeholder="Описание">
+        </fieldset>
+        <fieldset class="form__fieldset">
+          <input name="submit-button-profile" type="submit" class="form__button" value="Сохранить">
+        </fieldset>
+      </form>
+      <button type="reset" class="popup__close-button"></button>
+    </div>
+  </section>
   <footer class="footer">
     <p class="footer__copyright">© 2022 Mesto Russia</p>
   </footer>

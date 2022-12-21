@@ -2,16 +2,27 @@
     margin: 0;
     font-size: 18px;
     font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 720px) {
     .profile__description {
+        max-width: 500px;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .profile__description {
+        max-width: 400px;
     }
 }
 
 @media screen and (max-width: 470px) {
     .profile__description {
+        max-width: 270px;
         font-size: 14px;
     }
 }
