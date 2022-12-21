@@ -17,4 +17,4 @@
 
 **GitHUB Pages**
 
-[ссылка](https://inogdavsegda.github.io/russian-travel-bootcamp/)
+[ссылка](https://inogdavsegda.github.io/mesto-project-bootcamp/)
