@@ -1,0 +1,6 @@
+.gallery-popup__image-container {
+    position: relative;
+    margin: 90px;
+    max-height: 800px;
+    max-width: 1200px;
+}
