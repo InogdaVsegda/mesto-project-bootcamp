@@ -45,7 +45,10 @@ const formIputLink = formAdd.querySelector('.form__item_el_link')
 
 const gallery = document.querySelector('.elements__list')
 const galleryItemTemplate = document.querySelector('#gallery-item').content
-const galleryPopupTemplate = document.querySelector('#gallery-popup').content
+
+const galleryPopup = document.querySelector('.gallery-popup')
+const galleryPopupImage = galleryPopup.querySelector('.gallery-popup__image')
+const galleryPopupCaption = galleryPopup.querySelector('.gallery-popup__image-caption')
 
 const addNewGalleryItem = ({ name, link }) => {
     const newItem = galleryItemTemplate.querySelector('.element').cloneNode(true)
@@ -59,31 +62,21 @@ const addNewGalleryItem = ({ name, link }) => {
     const likeButton = newItem.querySelector('.element__like-button')
     likeButton.addEventListener('click', (e) => {
         e.target.classList.toggle('element__like-button_active')
+        e.stopPropagation()
     })
 
     const deleteButton = newItem.querySelector('.element__delete-button')
     deleteButton.addEventListener('click', (e) => {
         e.target.closest('.element').remove()
+        e.stopPropagation()
     })
 
     newItem.addEventListener('click', (e) => {
-        const newGalleryPopup = galleryPopupTemplate.querySelector('.gallery-popup').cloneNode(true)
-
-        const galleryPopupImage = newGalleryPopup.querySelector('.gallery-popup__image')
         galleryPopupImage.setAttribute('src', link)
-
-        const galleryPopupCaption = newGalleryPopup.querySelector('.gallery-popup__image-caption')
+        galleryPopupImage.setAttribute('alt', name)
         galleryPopupCaption.textContent = name
 
-        const galleryPopupClose = newGalleryPopup.querySelector('.popup__close-button')
-        const closeGalleryPopup = () => {
-            closePopup(newGalleryPopup)
-        }
-        galleryPopupClose.addEventListener('click', closeGalleryPopup)
-
-        container.append(newGalleryPopup)
-
-        openPopup(newGalleryPopup)
+        openPopup(galleryPopup)
     })
 
     gallery.prepend(newItem)
