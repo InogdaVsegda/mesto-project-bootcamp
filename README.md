@@ -1,6 +1,7 @@
 # Проект: Путешествие по России
 
 ### Stack
+* JavaScript
 * HTML
 * CSS
 
