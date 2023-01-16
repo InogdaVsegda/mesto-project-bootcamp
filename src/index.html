@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="container">
   <header class="header">
-    <img src="./images/logo.svg" alt="логотип место" class="header__logo">
+    <img src="<%=require('./images/logo.svg')%>" alt="логотип место" class="header__logo">
   </header>
   <main class="main">
     <section class="profile">
-      <img src="./images/profile-picture.jpg" alt="аватар" class="profile__avatar">
+      <img src="<%=require('./images/profile-picture.jpg')%>" alt="аватар" class="profile__avatar">
       <div class="profile__info">
         <div class="profile__name-wrapper">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -27,43 +26,55 @@
       </ul>
     </section>
   </main>
-  <section class="popup popup_edit">
+  <div class="popup popup_edit">
     <div class="popup__form-wrapper">
-      <form action="#" class="form form_edit" name="edit-profile">
+      <form action="#" class="form form_edit" name="edit-profile" novalidate>
         <h2 class="form__heading">Редактировать профиль</h2>
         <fieldset class="form__fieldset">
-          <input type="text" name="name-profile" class="form__item form__item_el_name" value="" placeholder="Имя">
-          <input type="text" name="description-profile" class="form__item form__item_el_description" value="" placeholder="Описание">
+          <label class="form__label">
+            <input type="text" name="name-profile" id="name-profile" class="form__item form__item_el_name" value="" placeholder="Имя" minlength="2" maxlength="40" required>
+            <span class="form__item-error name-profile-error"></span>
+          </label>
+          <label class="form__label">
+            <input type="text" name="description-profile" id="description-profile" class="form__item form__item_el_description" value="" placeholder="Описание" minlength="2" maxlength="200" required>
+            <span class="form__item-error description-profile-error"></span>
+          </label>
         </fieldset>
         <fieldset class="form__fieldset">
-          <input name="submit-button-profile" type="submit" class="form__button" value="Сохранить">
+          <input name="submit-button-profile" type="submit" class="form__button" value="Сохранить" disabled>
         </fieldset>
       </form>
       <button type="reset" class="popup__close-button"></button>
     </div>
-  </section>
-  <section class="popup popup_add">
+  </div>
+  <div class="popup popup_add">
     <div class="popup__form-wrapper">
-      <form action="#" class="form form_add" name="add-item">
+      <form action="#" class="form form_add" name="add-item" novalidate>
         <h2 class="form__heading">Новое место</h2>
         <fieldset class="form__fieldset">
-          <input type="text" name="name-profile" class="form__item form__item_el_place" value="" placeholder="Название">
-          <input type="text" name="description-profile" class="form__item form__item_el_link" value="" placeholder="Ссылка">
+          <label class="form__label">
+            <input type="text" id="place" name="place" class="form__item form__item_el_place" value="" placeholder="Название" minlength="2" maxlength="30" required>
+            <span class="form__item-error place-error"></span>
+          </label>
+          <label class="form__label">
+            <input type="url" id="image-link" name="image-link" class="form__item form__item_el_link" value="" placeholder="Ссылка" required>
+            <span class="form__item-error image-link-error"></span>
+          </label>
         </fieldset>
         <fieldset class="form__fieldset">
-          <input name="submit-button-profile" type="submit" class="form__button" value="Создать">
+          <input name="submit-button-profile" type="submit" class="form__button" value="Создать" disabled>
         </fieldset>
       </form>
       <button type="reset" class="popup__close-button"></button>
     </div>
-  </section>
-  <section class="popup gallery-popup">
+  </div>
+  <div class="popup gallery-popup">
     <figure class="gallery-popup__image-container">
       <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
       <img class="gallery-popup__image" src="" alt="">
       <figcaption class="gallery-popup__image-caption"></figcaption>
     </figure>
-  </section>
+  </div>
   <footer class="footer">
     <p class="footer__copyright">© 2022 Mesto Russia</p>
   </footer>
@@ -77,6 +88,5 @@
       </div>
     </li>
   </template>
-  <script src="./script/index.js"></script>
 </body>
 </html>
