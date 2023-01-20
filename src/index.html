@@ -11,13 +11,17 @@
   </header>
   <main class="main">
     <section class="profile">
-      <img src="<%=require('./images/profile-picture.jpg')%>" alt="аватар" class="profile__avatar">
+      <div class="profile__image-wrapper">
+        <img src="" alt="аватар" class="profile__avatar">
+        <div class="profile__image-hover"></div>
+      </div>
+      
       <div class="profile__info">
         <div class="profile__name-wrapper">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
         </div>
-        <p class="profile__description">Исследователь океана</p>
+        <p class="profile__description"></p>
       </div>
       <button type="button" class="profile__add-button" aria-label="Добавить"></button>
     </section>
@@ -68,6 +72,34 @@
       <button type="reset" class="popup__close-button"></button>
     </div>
   </div>
+  <div class="popup popup_avatar">
+    <div class="popup__form-wrapper">
+      <form action="#" class="form form_avatar" name="avatar" novalidate>
+        <h2 class="form__heading">Обновить аватар</h2>
+        <fieldset class="form__fieldset">
+          <label class="form__label">
+            <input type="url" id="avatar-link" name="avatar-link" class="form__item form__item_el_avatar" value="" placeholder="Ссылка" required>
+            <span class="form__item-error avatar-link-error"></span>
+          </label>
+        </fieldset>
+        <fieldset class="form__fieldset">
+          <input name="submit-button-profile" type="submit" class="form__button" value="Сохранить" disabled>
+        </fieldset>
+      </form>
+      <button type="reset" class="popup__close-button"></button>
+    </div>
+  </div>
+  <div class="popup popup_delete">
+    <div class="popup__form-wrapper">
+      <form action="#" class="form form_delete" name="delete-card" novalidate>
+        <h2 class="form__heading">Вы уверены?</h2>
+        <fieldset class="form__fieldset">
+          <input name="submit-button-profile" type="submit" class="form__button" value="Да">
+        </fieldset>
+      </form>
+      <button type="reset" class="popup__close-button"></button>
+    </div>
+  </div>
   <div class="popup gallery-popup">
     <figure class="gallery-popup__image-container">
       <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
@@ -81,10 +113,13 @@
   <template id="gallery-item">
     <li class="element">
       <img src="" alt="" class="element__image">
-      <button type="button" class="element__delete-button" aria-label="Удалить"></button>
+      <button type="button" class="element__delete-button" aria-label="Удалить" disabled></button>
       <div class="element__content-wrapper">
         <h2 class="element__name"></h2>
-        <button type="button" class="element__like-button" aria-label="Лайк"></button>
+        <div class="element__like-container">
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
+          <div class="element__like-counter">0</div>
+        </div>
       </div>
     </li>
   </template>

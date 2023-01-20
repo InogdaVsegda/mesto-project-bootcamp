@@ -1,0 +1,19 @@
+.profile__image-hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url('../../../images/profile-edit.svg');
+    background-position: center;
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s linear;
+}
+
+.profile__image-hover:hover {
+    opacity: 1;
+}

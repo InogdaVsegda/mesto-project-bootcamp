@@ -2,12 +2,13 @@ import './pages/index.css';
 
 import { initialCards } from './components/cardsData.js'
 import { enableValidation } from './components/validation.js'
-import { renderGalleryItems } from './components/card.js'
+import { renderGalleryItems } from './components/cardsServer.js'
 import { setPopupListeners } from './components/popup.js'
+import { setProfileData } from './components/profile';
+import {getProfileData} from './components/api.js'
 
-
-renderGalleryItems(initialCards)
-
+setProfileData()
+renderGalleryItems()
 setPopupListeners()
 
 enableValidation({
@@ -17,6 +18,7 @@ enableValidation({
     inactiveButtonClass: 'form__button_inactive',
     inputErrorClass: 'form__item_type_error',
     errorClass: 'form__item-error_active'
-  })
+})
 
 
+getProfileData()

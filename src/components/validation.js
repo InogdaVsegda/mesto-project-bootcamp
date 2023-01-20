@@ -20,12 +20,13 @@ const checkInputValidity = (form, input, classConfig) => {
     }
 }
 
-const hasInvalidInput = (inputList) => {
+const hasInvalidInput = (form, classConfig) => {
+    const inputList = Array.from(form.querySelectorAll(classConfig.inputSelector))
     return inputList.some(input => !input.validity.valid)
 }
 
-const toggleButtonState = (inputList, button, inactiveButtonClass) => {
-    if (hasInvalidInput(inputList)) {
+const toggleButtonState = (form, button, inactiveButtonClass, classConfig) => {
+    if (hasInvalidInput(form, classConfig)) {
       button.classList.add(inactiveButtonClass)
       button.setAttribute('disabled', '')
     } else {
@@ -34,14 +35,13 @@ const toggleButtonState = (inputList, button, inactiveButtonClass) => {
     }
 }
 
-const setEventListeners = (form, classConfig) => {
-    const inputList = Array.from(form.querySelectorAll(classConfig.inputSelector));
-    const button = form.querySelector(classConfig.submitButtonSelector)
-    toggleButtonState(inputList, button, classConfig.inactiveButtonClass)
+const setEventListeners = (form, classConfig, button) => {
+    const inputList = Array.from(form.querySelectorAll(classConfig.inputSelector))
+    toggleButtonState(form, button, classConfig.inactiveButtonClass, classConfig)
     inputList.forEach((input) => {
         input.addEventListener('input', () => {
             checkInputValidity(form, input, classConfig)
-            toggleButtonState(inputList, button, classConfig.inactiveButtonClass)
+            toggleButtonState(form, button, classConfig.inactiveButtonClass, classConfig)
         })
     })
 }
@@ -49,9 +49,15 @@ const setEventListeners = (form, classConfig) => {
 export const enableValidation = (classConfig) => {
     const formsList = Array.from(document.querySelectorAll(classConfig.formSelector))
     formsList.forEach((form) => {
+        const button = form.querySelector(classConfig.submitButtonSelector)
         form.addEventListener('submit', (e) => {
             e.preventDefault()
         })
-        setEventListeners(form, classConfig)
+        form.addEventListener('reset', () => {
+            setTimeout(() => {
+                toggleButtonState(form, button, classConfig.inactiveButtonClass, classConfig)
+            }, 0)
+        })
+        setEventListeners(form, classConfig, button)
     })
 }
