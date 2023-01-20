@@ -61,17 +61,19 @@ const renderLoading = (button, isLoading) => {
         }
     } else {
         switch(button) {
-            case formEditSubmit:
-                button.value = 'Сохранить'
+            case formDeleteSubmit:
+                button.value = 'Да'
                 break
             case formAddSubmit:
                 button.value = 'Создать'
                 break
-            case formAvatarSubmit:
+            default:
                 button.value = 'Сохранить'
                 break
         }
     }
+
+    console.log(res)
 }
 
 const handleFormEditSubmit = (evt) => {
