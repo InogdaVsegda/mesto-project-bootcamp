@@ -47,7 +47,7 @@ const getProfileData = () => {
 }
 
 const updateProfileData = (newName, newLink) => {
-  fetch(`${config.baseUrl}/users/me`, {
+  return fetch(`${config.baseUrl}/users/me`, {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
@@ -80,7 +80,7 @@ const addCard = (newName, newLink) => {
 }
 
 const deleteCard = (cardId) => {
-  fetch(`${config.baseUrl}/cards/${cardId}`, {
+  return fetch(`${config.baseUrl}/cards/${cardId}`, {
     method: 'DELETE',
     headers: config.headers,
   }).catch((err) => {
@@ -90,7 +90,7 @@ const deleteCard = (cardId) => {
 }
 
 const addLike = (cardId) => {
-  fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+  return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: 'PUT',
     headers: config.headers,
   }).catch((err) => {
@@ -99,7 +99,7 @@ const addLike = (cardId) => {
 }
 
 const deleteLike = (cardId) => {
-  fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+  return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: 'DELETE',
     headers: config.headers,
   }).catch((err) => {
@@ -108,7 +108,7 @@ const deleteLike = (cardId) => {
 }
 
 const updateAvatar = (imageLink) => {
-  fetch(`${config.baseUrl}/users/me/avatar`, {
+  return fetch(`${config.baseUrl}/users/me/avatar`, {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
