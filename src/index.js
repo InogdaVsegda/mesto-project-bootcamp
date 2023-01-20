@@ -1,6 +1,5 @@
 import './pages/index.css';
 
-import { initialCards } from './components/cardsData.js'
 import { enableValidation } from './components/validation.js'
 import { renderGalleryItems } from './components/cardsServer.js'
 import { setPopupListeners } from './components/popup.js'
