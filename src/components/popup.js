@@ -1,4 +1,4 @@
-import { createNewGalleryItem, addNewGalleryItem, renderGalleryItems } from './cardsServer'
+import { createNewGalleryItem, addNewGalleryItem } from './cardsServer'
 import { updateProfileData, addCard, updateAvatar, deleteCard } from './api'
 import { setProfileData } from './profile'
 
@@ -72,8 +72,6 @@ const renderLoading = (button, isLoading) => {
                 break
         }
     }
-
-    console.log(res)
 }
 
 const handleFormEditSubmit = (evt) => {
