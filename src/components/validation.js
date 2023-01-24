@@ -20,13 +20,12 @@ const checkInputValidity = (form, input, classConfig) => {
     }
 }
 
-const hasInvalidInput = (form, classConfig) => {
-    const inputList = Array.from(form.querySelectorAll(classConfig.inputSelector))
+const hasInvalidInput = (inputList) => {
     return inputList.some(input => !input.validity.valid)
 }
 
-const toggleButtonState = (form, button, inactiveButtonClass, classConfig) => {
-    if (hasInvalidInput(form, classConfig)) {
+const toggleButtonState = (inputList, button, inactiveButtonClass) => {
+    if (hasInvalidInput(inputList)) {
       button.classList.add(inactiveButtonClass)
       button.setAttribute('disabled', '')
     } else {
@@ -37,11 +36,11 @@ const toggleButtonState = (form, button, inactiveButtonClass, classConfig) => {
 
 const setEventListeners = (form, classConfig, button) => {
     const inputList = Array.from(form.querySelectorAll(classConfig.inputSelector))
-    toggleButtonState(form, button, classConfig.inactiveButtonClass, classConfig)
+    toggleButtonState(inputList, button, classConfig.inactiveButtonClass, classConfig)
     inputList.forEach((input) => {
         input.addEventListener('input', () => {
             checkInputValidity(form, input, classConfig)
-            toggleButtonState(form, button, classConfig.inactiveButtonClass, classConfig)
+            toggleButtonState(inputList, button, classConfig.inactiveButtonClass, classConfig)
         })
     })
 }
@@ -50,14 +49,6 @@ export const enableValidation = (classConfig) => {
     const formsList = Array.from(document.querySelectorAll(classConfig.formSelector))
     formsList.forEach((form) => {
         const button = form.querySelector(classConfig.submitButtonSelector)
-        form.addEventListener('submit', (e) => {
-            e.preventDefault()
-        })
-        form.addEventListener('reset', () => {
-            setTimeout(() => {
-                toggleButtonState(form, button, classConfig.inactiveButtonClass, classConfig)
-            }, 0)
-        })
         setEventListeners(form, classConfig, button)
     })
 }

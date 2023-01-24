@@ -1,11 +1,3 @@
-import {
-  renderLoading, 
-  formAvatarSubmit, 
-  formEditSubmit, 
-  formAddSubmit, 
-  formDeleteSubmit
-} from './popup.js'
-
 const config = {
   baseUrl: 'https://nomoreparties.co/v1/wbf-cohort-4',
   headers: {
@@ -14,36 +6,31 @@ const config = {
   }
 }
 
+const responseHandler = (response) => {
+  if(response.ok) {
+    return response.json()
+  }
+  return Promise.reject(`Ошибка: ${response.status}`)
+}
+
+const errorHandler = (err) => {
+  console.log(err)
+}
+
 const getInitialCards  = () => {
     return fetch(`${config.baseUrl}/cards`, {
       headers: config.headers,
-    })
-      .then(res => {
-        if(res.ok) {
-          return res.json()
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then(data => Array.from(data).reverse())
-      .catch((err) => {
-        console.log(err);
+    }).then(res => {
+        return responseHandler(res)
       })
 }
 
 const getProfileData = () => {
   return fetch(`${config.baseUrl}/users/me`, {
       headers: config.headers,
-    })
-    .then(res => {
-      if(res.ok) {
-        return res.json()
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-      
+    }).then(res => {
+        return responseHandler(res)
+      })
 }
 
 const updateProfileData = (newName, newLink) => {
@@ -53,11 +40,10 @@ const updateProfileData = (newName, newLink) => {
     body: JSON.stringify({
       name: newName,
       about: newLink
-    })
-  }).catch((err) => {
-      console.log(err);
-    })
-    .finally(() => renderLoading(formEditSubmit, false))
+      })
+    }).then(res => {
+        return responseHandler(res)
+      })
 }
 
 const addCard = (newName, newLink) => {
@@ -69,42 +55,35 @@ const addCard = (newName, newLink) => {
       link: newLink
     })
   }).then(res => {
-    if(res.ok) {
-      return res.json()
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  }).catch((err) => {
-      console.log(err);
+      return responseHandler(res)
     })
-    .finally(() => renderLoading(formAddSubmit, false))
 }
 
 const deleteCard = (cardId) => {
   return fetch(`${config.baseUrl}/cards/${cardId}`, {
     method: 'DELETE',
     headers: config.headers,
-  }).catch((err) => {
-      console.log(err);
-    })
-    .finally(() => renderLoading(formDeleteSubmit, false))
+  }).then(res => {
+      return responseHandler(res)
+    }) 
 }
 
 const addLike = (cardId) => {
   return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: 'PUT',
     headers: config.headers,
-  }).catch((err) => {
-      console.log(err);
-    })
+  }).then(res => {
+      return responseHandler(res)
+    }) 
 }
 
 const deleteLike = (cardId) => {
   return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: 'DELETE',
     headers: config.headers,
-  }).catch((err) => {
-    console.log(err);
-  })
+  }).then(res => {
+      return responseHandler(res)
+    }) 
 }
 
 const updateAvatar = (imageLink) => {
@@ -114,10 +93,9 @@ const updateAvatar = (imageLink) => {
     body: JSON.stringify({
       avatar: imageLink
     })
-  }).catch((err) => {
-      console.log(err);
-    })
-    .finally(() => renderLoading(formAvatarSubmit, false))
+  }).then(res => {
+      return responseHandler(res)
+    }) 
 }
 
 
@@ -129,5 +107,6 @@ export {
   deleteCard, 
   addLike,
   deleteLike,
-  updateAvatar
+  updateAvatar,
+  errorHandler
 }
