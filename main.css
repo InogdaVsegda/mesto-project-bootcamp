@@ -37,7 +37,7 @@
 .form__item_type_error{border-bottom:1px solid red}
 .form__button{background-color:#000;border:none;border-radius:2px;box-sizing:border-box;color:#fff;cursor:pointer;font-size:18px;font-weight:400;margin:18px 0 0;min-height:50px;padding:0;transition:all .3s}.form__button:hover{opacity:.8}@media screen and (max-width:470px){.form__button{font-size:14px;margin-top:15px}}
 .form__button_inactive{background-color:transparent;border:1px solid rgba(0,0,0,.2);color:rgba(0,0,0,.2);cursor:auto}
-.form__item-error{color:red;font-size:12px;left:0;margin:0 0 13px;max-width:340px;min-height:12px;opacity:0;padding:0;top:32px}
+.form__item-error{color:red;font-size:12px;left:0;margin:0;max-width:340px;min-height:30px;opacity:0;padding:0;top:32px}
 .form__item-error_active{opacity:1}
 .gallery-popup{background-color:rgba(0,0,0,.9)}
 .gallery-popup__image-caption{font-size:12px;font-weight:400;margin-top:10px}
